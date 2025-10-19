@@ -1,16 +1,14 @@
-const express = require('express');
+const express = require('express')
 
 //Enrutador
-const router = express.Router();
+const router = express.Router()
 
 
-const controller = require('./controllers');
+const animalesController = require('../controllers/animalesController');
 
 // Definir rutas
-router.get('/animales', controller.getAllAnimals);
-router.get('/animales/:id', controller.getAnimalById);
-router.post('/animales', controller.createAnimal);
-router.put('/animales/:id', controller.updateAnimal);
-router.delete('/animales/:id', controller.deleteAnimal);
+router.post('/', animalesController.crearAnimal)
+router.get('/', animalesController.obtenerAnimales)
+router.get('/:id', animalesController.obtenerAnimalesPorId)
 
-module.exports = router;
+module.exports = router
